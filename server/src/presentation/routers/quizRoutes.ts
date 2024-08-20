@@ -15,6 +15,10 @@ route.post('/',(req,res,next)=>{
 
 route.get('/',(req,res,next)=>{
     questionControllers.findQuestions(req,res,next);
+});
+
+route.post('/add-many',(req,res,next)=>{
+    questionControllers.createManyQuestions(req,res,next);
 })
 
 export default route
