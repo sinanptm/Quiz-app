@@ -5,9 +5,7 @@ import QuestionModel from "../models/QuestionModel";
 
 export default class QuestionRepository implements IQuestionRepository {
   model = QuestionModel;
-  constructor() {
-    this.model = QuestionModel;
-  }
+
   async create(question: IQuestion): Promise<IQuestion> {
     const questionModel = new this.model(question);
     const createdQuestion = await questionModel.save();

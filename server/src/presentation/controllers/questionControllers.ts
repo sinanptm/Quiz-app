@@ -6,8 +6,8 @@ export default class QuestionController {
   constructor(private questionUseCase: QuestionUseCase) {}
   async createQuestion(req: Request, res: Response, next: NextFunction) {
     try { 
-      await this.questionUseCase.createQuestion(req.body as IQuestion);
-      res.status(200).json({message:"Question created Successfully."})
+      const question = await this.questionUseCase.createQuestion(req.body as IQuestion);
+      res.status(200).json({message:"Question created Successfully.",question})
     } catch (error) {
       next(error);
     }
