@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Cache Node.js modules
+      - name: Cache Node.js modules for server
         uses: actions/cache@v3
         with:
           path: |
@@ -34,14 +34,35 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Cache Node.js modules for client
+        uses: actions/cache@v3
+        with:
+          path: |
+            client/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('client/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies for server
         run: npm install
         working-directory: server
+
+      - name: Install dependencies for client
+        run: npm install
+        working-directory: client
 
       - name: Build server project
         run: npm run build
         working-directory: server
 
+      - name: Build client project
+        run: npm run build
+        working-directory: client
+
       - name: Run tests for server
         run: npm test
         working-directory: server
+
+      - name: Run tests for client
+        run: npm test
+        working-directory: client
