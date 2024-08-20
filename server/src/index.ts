@@ -1,6 +1,7 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './config/dbConfig';
+import quizRoutes from './presentation/routers/quizRoutes';
 
 dotenv.config();
 
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// app.use(ProductRouters)
+app.use('/question',quizRoutes)
 
 connectDB().then(()=>{
   app.listen(PORT, () => {
