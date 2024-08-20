@@ -19,7 +19,7 @@ export default class QuestionController {
     try {
       const limit = ParseInt(req.query.limit as string) || 10;
       const offset = ParseInt(req.query.offset as string) || 0;
-      const questions = await this.questionUseCase.findQuestions(limit, offset);
+      const questions = await this.questionUseCase.findQuestions(limit, offset,req.query.category as string);
       res.status(200).json({ questions });
     } catch (error) {
       next(error);
@@ -29,9 +29,16 @@ export default class QuestionController {
   async createManyQuestions(req: Request, res: Response, next: NextFunction) {
     try {
       const questions: IQuestion[] = req.body.questions;
-      const createdQuestions = questions.map(async (question) => {
-        await this.questionUseCase.createQuestion(question);
-      });
+      
+  
+      if (!Array.isArray(questions) || questions.length === 0) {
+        return res.status(400).json({ message: "Invalid questions array." });
+      }
+  
+      const createdQuestions = await Promise.all(
+        questions.map((question) => this.questionUseCase.createQuestion(question))
+      );
+  
       res.status(200).json({ questions: createdQuestions });
     } catch (error) {
       next(error);
