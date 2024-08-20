@@ -23,7 +23,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use("/question", quizRoutes);
+app.use("/questions", quizRoutes);
 app.use("/", userRoutes);
 
 connectDB().then(() => {

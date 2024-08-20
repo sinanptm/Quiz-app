@@ -13,4 +13,8 @@ route.post('/',(req,res,next)=>{
     questionControllers.createQuestion(req,res,next)
 });
 
+route.get('/',(req,res,next)=>{
+    questionControllers.findQuestions(req,res,next);
+})
+
 export default route

@@ -1,6 +1,6 @@
 import Question, { IQuestion } from "../../../domain/entities/Question";
 import IQuestionRepository from "../../../interfaces/repositories/IQuestionRepository";
-import { ParseInt } from "../../../utils";
+import { ParseInt } from "../../../presentation/utils";
 import QuestionModel from "../models/QuestionModel";
 
 export default class QuestionRepository implements IQuestionRepository {
@@ -29,11 +29,11 @@ export default class QuestionRepository implements IQuestionRepository {
     );
   }
 
-  async findAll(limit: string, offset: string): Promise<IQuestion[]> {
+  async findAll(limit: number, offset: number): Promise<IQuestion[]> {
     const questions = await this.model
       .find()
-      .skip(ParseInt(offset))
-      .limit(ParseInt(limit));
+      .skip(offset)
+      .limit(limit);
     return questions.map(
       (question) =>
         new Question(

@@ -7,4 +7,7 @@ export default class QuestionUseCase {
     async createQuestion(question:IQuestion):Promise<IQuestion>{
         return await this.questionRepository.create(question)
     }
+    async findQuestions(limit:number,offset:number):Promise<IQuestion[]>{
+        return await this.questionRepository.findAll(limit,offset);
+    }
 }
