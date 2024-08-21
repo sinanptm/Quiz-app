@@ -1,14 +1,13 @@
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { ThreeDCardDemo } from "./CustomCard";
-import { CardProps } from "@/types";
-import { timeQuizes } from "@/constants";
+import { timeQuizzes } from "@/constants";
 
 const QuestionsTable = () => {
   
   return (
     <div>
       <InfiniteMovingCards
-        items={timeQuizes}
+        items={timeQuizzes}
         CardComponent={ThreeDCardDemo}
         direction="left"
         speed="fast"
