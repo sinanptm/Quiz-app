@@ -8,7 +8,7 @@ const QuizPage = () => {
   return (
     <div>
         {!error&&!isLoading && (
-            <div>
+            <div className="flex">
 
             </div>
          )}
