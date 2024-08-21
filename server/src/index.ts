@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/dbConfig";
 import quizRoutes from "./presentation/routers/quizRoutes";
-import userRoutes from "./presentation/routers/userRoutes";
+import adminRoutes from "./presentation/routers/adminRoutes";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/questions", quizRoutes);
-app.use("/", userRoutes);
+app.use("/", adminRoutes);
 
 connectDB().then(() => {
   app.listen(PORT, () => {
