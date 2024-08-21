@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MenuIcon } from "lucide-react";
@@ -9,8 +10,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { useSelector } from "react-redux";
+import { selectAdmin } from "@/lib/features/adminSlice";
 
 export default function Component() {
+  const admin = useSelector(selectAdmin);
+
+  console.log('admin: ',admin);
+  
   return (
     <header className="sticky top-0 flex h-16 items-center justify-between border-b bg-background px-4 md:px-6">
       <nav className="flex items-center gap-2 text-lg font-semibold">

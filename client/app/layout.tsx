@@ -25,8 +25,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased ", fontSans.variable)}>
         <BackgroundGradientAnimation>
-          <NavBar />
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider>
+            <NavBar />
+            {children}
+          </StoreProvider>
         </BackgroundGradientAnimation>
       </body>
     </html>

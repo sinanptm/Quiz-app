@@ -1,15 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userSlice from "./features/userSlice";
+import adminSlice from "./features/adminSlice";
 import questionsApiSlice from "./features/questionsApiSlice";
+import localStorageMiddleware from "./middleware/localStorageMiddleware";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      user: userSlice,
+      admin: adminSlice,
       [questionsApiSlice.reducerPath]: questionsApiSlice.reducer,
     },
-    middleware: (getDefaultMiddleware) =>getDefaultMiddleware().concat(questionsApiSlice.middleware),
-    devTools: process.env.NEXT_PUBLIC_NODE_ENV !== "production"
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware()
+        .concat(questionsApiSlice.middleware)
+        .concat(localStorageMiddleware),  
+    devTools: process.env.NEXT_PUBLIC_NODE_ENV !== "production",
   });
 };
 
