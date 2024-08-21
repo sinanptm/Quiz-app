@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import StoreProvider from "./storeProvider";
 import NavBar from "@/components/NavBar";
 import { cn } from "@/lib/utils";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,15 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <NavBar />
-        <StoreProvider>{children}</StoreProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background font-sans antialiased ", fontSans.variable)}>
+        <BackgroundGradientAnimation>
+          <NavBar />
+          <StoreProvider>{children}</StoreProvider>
+        </BackgroundGradientAnimation>
       </body>
     </html>
   );
