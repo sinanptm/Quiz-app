@@ -39,7 +39,7 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="sticky top-0 flex h-16 items-center justify-between border-b bg-background px-4 md:px-6">
+      <header className="sticky top-0 flex h-16 items-center justify-between border-b bg-background px-4 md:px-6 z-50">
         <nav className="flex items-center gap-2 text-lg font-semibold">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold" prefetch={false}>
             <span className="h-6 w-6">📚</span> 
