@@ -8,7 +8,7 @@ const QuizPage = () => {
   const limit = parseInt(params.get("limit") || '10', 10);
 
   return (
-    <Suspense fallback={<div>Loading quiz page...</div>}>
+    <Suspense>
       <QuizForm limit={limit} />
     </Suspense>
   );
