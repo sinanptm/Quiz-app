@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import Image from "next/image";
 import React from "react";
@@ -14,11 +14,11 @@ export const ThreeDCardDemo = ({
 }: CardProps) => {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-opacity-15 bg-indigo-600 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+      <CardBody className="bg-opacity-15 bg-indigo-600 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full h-full rounded-xl p-6 border">
         <CardItem translateZ="50" className="text-xl font-bold">
           {heading}
         </CardItem>
-        <CardItem as="p" translateZ="60" className="text-sm max-w-sm mt-2">
+        <CardItem as="p" translateZ="60" className="text-sm mt-2">
           {text}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
@@ -27,16 +27,16 @@ export const ThreeDCardDemo = ({
             priority
             height="1000"
             width="1000"
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            className="h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt="thumbnail"
           />
         </CardItem>
-        <div className="flex justify-between items-center mt-20">
+        <div className="flex justify-center mt-6">
           <CardItem
             translateZ={20}
             as="button"
-            className="px-4 py-2 rounded-xl bg-gray-500 dark:bg-white dark:text-black text-white text-xs font-bold">
-            <Link href={`/quiz?limit=${id}`}>Start</Link>
+            className="px-4 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 dark:bg-white dark:text-black text-white text-sm font-bold transition-colors">
+            <Link href={`/quiz?limit=${id}`}>Start Quiz</Link>
           </CardItem>
         </div>
       </CardBody>

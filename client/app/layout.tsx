@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  login
+  // login
 }: Readonly<{
   children: React.ReactNode;
-  login:React.ReactNode;
+  // login:React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -29,7 +29,7 @@ export default function RootLayout({
         <BackgroundGradientAnimation>
           <StoreProvider>
             <NavBar />
-            {login}
+            {/* {login} */}
             {children}
           </StoreProvider>
         </BackgroundGradientAnimation>

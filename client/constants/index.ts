@@ -1,4 +1,4 @@
-import { CardProps } from "@/types";
+import { CardProps, Question } from "@/types";
 
 export const NavItems = [
   {
@@ -31,3 +31,27 @@ export const timeQuizzes: CardProps[] = [
 ];
 
 
+
+export const sampleQuestions: Question[] = [
+  {
+    question: "What is the capital of France?",
+    options: ["London", "Berlin", "Paris", "Madrid"],
+    correctAnswer: "Paris",
+    difficulty: "Easy",
+    category: "Geography",
+  },
+  {
+    question: "Which planet is known as the Red Planet?",
+    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+    correctAnswer: "Mars",
+    difficulty: "Easy",
+    category: "Astronomy",
+  },
+  {
+    question: "Who painted the Mona Lisa?",
+    options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+    correctAnswer: "Leonardo da Vinci",
+    difficulty: "Medium",
+    category: "Art",
+  },
+];

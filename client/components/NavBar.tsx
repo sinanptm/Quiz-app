@@ -13,8 +13,10 @@ import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { openLoginForm, removeCredentials, selectAdmin } from "@/lib/features/adminSlice";
 import AddQuestionModel from './AddQuestionModel';
+import LoginModel from './LoginModel';
 
-export default function CombinedComponent() {
+
+const NavBar = () => {
   const [open, setOpen] = useState(false);
   const isAdmin = useSelector(selectAdmin);
   const dispatch = useDispatch();
@@ -64,6 +66,9 @@ export default function CombinedComponent() {
         </DropdownMenu>
       </header>
       <AddQuestionModel open={open} setOpen={setOpen} />
+      <LoginModel />
     </>
   );
 }
+
+export default NavBar

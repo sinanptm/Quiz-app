@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { AdminLoginRequest, AdminLoginResponse,  QuestionQueryParams, QuestionsResponse } from "@/types";
+import { AdminLoginRequest, AdminLoginResponse,  Question,  QuestionQueryParams, QuestionsResponse } from "@/types";
 
 const questionsApiSlice = createApi({
   baseQuery: fetchBaseQuery({
@@ -19,9 +19,16 @@ const questionsApiSlice = createApi({
         body: credentials,
       }),
     }),
+    addQuestion:builder.mutation<QuestionsResponse, Question>({
+      query:(question:Question)=>({
+        url:"/questions",
+        method:"POST",
+        body:question
+      })
+    })
   }),
 });
 
-export const { useGetQuestionsQuery, useAdminLoginMutation } = questionsApiSlice;
+export const { useGetQuestionsQuery, useAdminLoginMutation, useAddQuestionMutation } = questionsApiSlice;
 
 export default questionsApiSlice;
