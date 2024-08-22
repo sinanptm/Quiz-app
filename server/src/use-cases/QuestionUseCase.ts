@@ -10,4 +10,10 @@ export default class QuestionUseCase {
     async findQuestions(limit:number,offset:number,category:string):Promise<IQuestion[]>{
         return await this.questionRepository.findAll(limit,offset,category);
     }
+    async createManyQuestions(questions:IQuestion[]){
+        const createdQuestions = await Promise.all(
+            questions.map((question) => this.questionRepository.create(question))
+        );
+        return createdQuestions;
+    }
 }
