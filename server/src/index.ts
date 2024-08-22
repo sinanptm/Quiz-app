@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://quiz-app-topaz-beta-82.vercel.app/",
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
@@ -33,9 +33,3 @@ connectDB().then(() => {
 });
 
 
-
-// Models: Defines the data models used throughout the application.
-// Repository: Acts as an abstraction layer over data sources, providing a clean API for accessing and managing data.
-// Entities: Represent core business objects with their properties and behaviors.
-// Use Cases: Contains application-specific business rules and logic, orchestrating interactions between entities and data sources.
-// Repository Interfaces: Defines interfaces for repositories used to access data, decoupling the domain layer from specific data sources.
