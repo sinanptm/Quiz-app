@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client'
+import React, { Suspense } from "react";
 import QuizForm from "@/components/QuizForm";
 import { useSearchParams } from "next/navigation";
 
@@ -8,9 +8,9 @@ const QuizPage = () => {
   const limit = parseInt(params.get("limit") || '10', 10);
 
   return (
-    <div className="flex items-center justify-center">
+    <Suspense fallback={<div>Loading quiz page...</div>}>
       <QuizForm limit={limit} />
-    </div>
+    </Suspense>
   );
 };
 
