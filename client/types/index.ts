@@ -30,3 +30,13 @@ export interface CardProps {
   id: string;
 }
 
+
+export interface AdminLoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface AdminLoginResponse {
+  token: string;
+  message: string;
+}
