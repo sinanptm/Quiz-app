@@ -1,7 +1,7 @@
 'use client'
-import Link from "next/link";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "@/components/ui/button";
-import { MenuIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,11 +9,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
+import { MenuIcon } from "lucide-react";
 import { openLoginForm, removeCredentials, selectAdmin } from "@/lib/features/adminSlice";
+import AddQuestionModel from './AddQuestionModel';
 
-export default function Component() {
-  const isAdmin = useSelector(selectAdmin);  
+export default function CombinedComponent() {
+  const [open, setOpen] = useState(false);
+  const isAdmin = useSelector(selectAdmin);
   const dispatch = useDispatch();
 
   const handleAdminClick = () => {
@@ -22,9 +25,15 @@ export default function Component() {
     }
   };
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     dispatch(removeCredentials());
-  }
+  };
+
+  const handleAddQuestion = () => {
+    if (isAdmin) {
+      setOpen(true);
+    }
+  };
 
   return (
     <>
@@ -45,8 +54,8 @@ export default function Component() {
           <DropdownMenuContent align="end">
             {isAdmin ? (
               <>
-              <DropdownMenuItem>Add Question</DropdownMenuItem>
-              <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleAddQuestion}>Add Question</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
               </>
             ) : (
               <DropdownMenuLabel onClick={handleAdminClick}>Admin</DropdownMenuLabel>
@@ -54,6 +63,7 @@ export default function Component() {
           </DropdownMenuContent>
         </DropdownMenu>
       </header>
+      <AddQuestionModel open={open} setOpen={setOpen} />
     </>
   );
 }

@@ -11,6 +11,7 @@ const QuestionsTable = () => {
         CardComponent={ThreeDCardDemo}
         direction="left"
         speed="fast"
+        
         pauseOnHover={true}
       />
     </div>
