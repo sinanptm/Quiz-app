@@ -28,6 +28,23 @@ export const timeQuizzes: CardProps[] = [
     text: "The ultimate test of your skills.",
     id: "15",
   },
+  {
+    heading: "5 Questions",
+    text: "A quick challenge to test your knowledge.",
+    id: "532",
+  },
+  {
+    image: "/one.webp",
+    heading: "10 Questions",
+    text: "A bit longer, a bit tougher.",
+    id: "1032",
+  },
+  {
+    image: "/two.avif",
+    heading: "15 Questions",
+    text: "The ultimate test of your skills.",
+    id: "15232",
+  },
 ];
 
 
