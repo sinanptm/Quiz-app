@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: "https://quiz-app-topaz-beta-82.vercel.app/",
+  origin: "https://quiz-app-six-dusky.vercel.app/",
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", 'HEAD', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   credentials: true,
