@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node dist/index.ts",
     "build": "tsc",
     "test": "echo \"No tests specified\" && exit 0"
   },
