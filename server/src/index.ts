@@ -12,8 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: 'https://quiz-app-topaz-beta-82.vercel.app/', 
-  credentials: true
+  origin: '*', 
 };
 
 app.use(cookieParser());
